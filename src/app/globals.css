@@ -2,22 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+.my-input-text {
+  @apply p-2 border rounded-md bg-gray-100 focus:bg-white;
+}
+
+body {
+  @apply bg-gray-100;
+}
+
+.h1 {
+  @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+}
+
+.h2 {
+  @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+}
+
+.h3 {
+  @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
