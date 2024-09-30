@@ -10,8 +10,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    
+      <div className={inter.className}>
         <header className="py-2 bg-white">
           <nav className="w-full">
             <div className="max-w-5xl mx-auto px-6 md:px-12 xl:px-6">
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
         <main className="pt-5 max-w-5xl mx-auto px-6 md:px-12 xl:px-6"> 
           {children} 
         </main>
-      </body>
-    </html>
+      </div>
+    
   );
 }
