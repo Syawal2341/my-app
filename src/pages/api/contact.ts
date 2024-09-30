@@ -13,7 +13,7 @@ interface Location {
   street: string;
 }
 interface SocialMedia {
-  email: String;
+  email: string;
   skype: string;
   telegram: string;
 }

@@ -9,7 +9,7 @@ export default async function handler(
     const db = client.db(process.env.MONGODB_NAME);
     switch (req.method) {
       case "POST":
-        let myWork = await db.collection("work").insertOne(req.body);
+        const myWork = await db.collection("work").insertOne(req.body);
         res.json({ data: myWork });
         break;
       case "GET":
