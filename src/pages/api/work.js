@@ -1,12 +1,11 @@
 import clientPromise from "../../lib/mongodb";
-import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
-    req:NextApiRequest, 
-    res:NextApiResponse
+    req, 
+    res
 ) {
-    const client = await clientPromise;
-    const db = client.db(process.env.MONGODB_NAME);
+    let client = await clientPromise;
+    let db = client.db(process.env.MONGODB_NAME);
     switch (req.method) {
       case "POST":
         const myWork = await db.collection("work").insertOne(req.body);
