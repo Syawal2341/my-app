@@ -1,123 +1,131 @@
-"use client";
-import { useState, useEffect } from 'react';
-
-const ItemCard = ({ label, value }) => {
-    return (
-        <div className='flex gap-4 bg-white rounded-md m-2 p-2'>
-            <div>{label}</div>
-            <div>{value}</div>
-        </div>
-    );
-}
+"use client"
+import { useState } from 'react';
+import Card from '../../../../components/card';
 
 export default function AdminWork() {
-    const [data, setData] = useState([]);
-    const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState({
+    title:'',
+    employeType:'',
+    companyName:'',
+    location:'',
+    startDate:'',
+    endDate:'',
+  });
+  
+  const optEmployeType = [
+    {label:'Full Time', value:'full-time'},
+    {label:'Part Time', value:'part-time'},
+    {label:'Contract', value:'contract'},
+    {label:'Internship', value:'internship'}
+  ]
 
-    async function onLoadData() {
-        try {
-            const res = await fetch('/api/contact');
-            if (!res.ok) throw new Error('Network response was not ok');
-            const data = await res.json();
-            setData(data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        } finally {
-            setLoading(false);
-        }
+  const optLocation = [
+    {label:'Onsite', value:'onsite'},
+    {label:'WFH', value:'wfh'},
+  ]
+
+  const inputHandler= (e) =>{
+    setData({...data, [e.target.name]: e.target.value })
+  }
+
+  async function onSubmitData() {
+    try{
+      let res = await fetch('/api/work', {
+        method:'POST',
+        body: JSON.stringify(data),
+      })
+      let resData = await res.json()
+      if(!resData.data){
+        throw Error(resData.message)
+      }
+      alert("Data berhasil disimpan dengan id \n"+ resData.data.insertedId)
+    }catch(err){
+      console.error("ERR", err.message)
+      alert(err.message)
     }
-
-    useEffect(() => {
-        onLoadData();
-    }, []);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission logic here
-    };
-
-    return (
-        <>
-            <h2 className="text-center text-3xl w-full">Get In Touch</h2>
-
-            <p className="text-center margin-0 mx-auto w-2/3">
-                lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem 
-                ipsum lorem ipsum lorem ipsum 
-            </p>
-
-            
-
-                <h1 className="text-xl font-semibold mb-4">Add experience</h1>
-                <p className="text-sm text-gray-500 mb-4">* Indicates required</p>
-
-                <div className="bg-gray-100 p-4 rounded-lg mb-6">
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <p className="text-sm font-semibold">Notify network</p>
-                            <p className="text-xs text-gray-500">Turn on to notify your network of key profile changes (such as new job) and work anniversaries. Updates can take up to 2 hours. Learn more about <a href="#" className="text-blue-600">sharing profile changes</a>.</p>
-                        </div>
-                        <label className="switch">
-                            <input type="checkbox" />
-                            <span className="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">Title*</label>
-                        <input type="text" placeholder="Ex: Retail Sales Manager" className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500" />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">Employment type</label>
-                        <select className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500">
-                            <option>Please select</option>
-                        </select>
-                        <p className="text-xs text-blue-600 mt-1">Learn more about <a href="#" className="text-blue-600">employment types</a>.</p>
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">Company name*</label>
-                        <input type="text" placeholder="Ex: Microsoft" className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500" />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">Location</label>
-                        <input type="text" placeholder="Ex: London, United Kingdom" className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500" />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">Location type</label>
-                        <select className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500">
-                            <option>Please select</option>
-                        </select>
-                        <p className="text-xs text-gray-500 mt-1">Pick a location type (ex: remote)</p>
-                    </div>
-
-                    <div className="mb-4 flex items-center">
-                        <input type="checkbox" className="mr-2" />
-                        <label className="text-sm">I am currently working in this role</label>
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">Start date*</label>
-                        <input type="text" placeholder="Start date*" className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500" />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-sm font-semibold mb-1">End date*</label>
-                        <input type="text" placeholder="Present" className="w-full border-b border-gray-300 p-2 focus:outline-none focus:border-blue-500" disabled />
-                    </div>
-
-                    <div className="mb-6 flex items-center">
-                        <input type="checkbox" className="mr-2" />
-                        <label className="text-sm">End current position as of now - Frontend Developer at Mister Aladin</label>
-                    </div>
-
-                    <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg">Save</button>
-                </form>
-            
-        </>
-    );
 }
+
+
+  return (<>
+      <Card title="Work Form" className="pb-5">
+        <div className="w-full my-2">
+            <label>Title</label> 
+            <input 
+              type="text" 
+              name='title'
+              value={data.title}
+              onChange={inputHandler}
+              className="w-full border my-input-text"/>
+        </div>
+
+        <div className="w-full my-2">
+            <label>Employe Type</label>
+            <select  
+              name='employeType' 
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optEmployeType && 
+                  optEmployeType.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
+            </select>
+        </div>
+
+        <div className="w-full my-2">
+            <label>Company Name</label>
+            <input 
+              name='companyName' 
+              type="text" 
+              onChange={inputHandler}
+              className="w-full border my-input-text"/>
+        </div>
+
+        <div className="w-full my-2">
+            <label>Location</label>
+            <select 
+              name='location'
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optLocation && 
+                optLocation.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
+            </select>
+        </div>
+
+        <div className="w-full my-2">
+            <label>Start Date</label>
+            <input 
+              name='startDate'
+              onChange={inputHandler}
+              type="date" 
+              className="w-full border my-input-text"/>
+        </div>
+
+        <div className="w-full my-2">
+            <label>End Date</label>
+            <input 
+              name='endDate'
+              onChange={inputHandler}
+              type="date" 
+              className="w-full border my-input-text"/>
+        </div>
+
+        <button 
+          onClick={onSubmitData}
+          className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
+            <label>Submit Data</label>
+        </button>
+      </Card>
+      
+      <Card title="List of Work" style="mt-5">
+        asdf
+      </Card>
+    </>
+  );
+}
+  
