@@ -20,9 +20,12 @@ export default function RootLayout({ children }) {
                   <a href="/">Admin Panel</a>
                 </div>
                 <div>
-                  <ul className="flex flex-row gap-6">
+                  <ul className="flex flex-row gap-2">
                     <li>
                       <a href="/admin/work">Work</a>
+                    </li>                 
+                    <li>
+                      <a href="/admin/messages">Messages</a>
                     </li>
                   </ul>
                 </div>
