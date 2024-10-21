@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+import ConfigDialog from '../../../../../components/ConfirmDialog'
 
 export default function WorkList(){
     const [loading, setLoading] = useState(false)
@@ -32,7 +33,7 @@ export default function WorkList(){
 
     return (
         <>
-            
+            <ConfigDialog />
             <table className="table-auto">
                 <thead>
                     <tr>
