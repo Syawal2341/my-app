@@ -1,13 +1,12 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import clientPromise from "../../lib/mongodb";
 
-export default async function handler(
-    req, 
-    res
-) {
-    let client = await clientPromise;
-    let db = client.db(process.env.MONGODB_NAME);
-    switch (req.method) {
-      case "POST":
+export default async function handler(req:NextApiRequest, res:NextApiResponse) {
+  const client = await clientPromise;
+  const db = client.db(process.env.MONGODB_NAME);
+
+  switch (req.method) {
+    case "POST":
         try{
             const body = JSON.parse(req.body)
             if(typeof body !== "object"){
