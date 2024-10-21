@@ -13,6 +13,19 @@ export default function WorkList(){
         setLoading(false)
     }
 
+    const onDeleteItem = async (id)=>{
+        const request = {
+            deleted_id:id
+        }
+        
+        let res = await fetch(`/api/work`,{
+            method:'DELETE',
+            body: JSON.stringify(request),
+        } )
+
+        onLoadData()
+    }
+
     useEffect(() => {
         onLoadData()
     }, [])
@@ -51,7 +64,7 @@ export default function WorkList(){
                                         <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
                                             Edit
                                         </button>
-                                        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
+                                        <button onClick={()=>onDeleteItem(item._id)} className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
                                             Delete
                                         </button>
                                     </div>
