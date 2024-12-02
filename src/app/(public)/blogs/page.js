@@ -68,7 +68,7 @@ export default function Blogs(){
 
     return (
         <>
-            <h2 className="text-center text-[32px] font-bold w-full">Blog</h2>
+            <h2 className="text-center text-[32px] font-bold w-full">Blogs</h2>
                 
             <p className="text-center margin-0 mx-auto w-2/3">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum
