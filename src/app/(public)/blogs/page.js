@@ -79,17 +79,21 @@ export default function Blogs(){
                 { isLoading && <LoadingCard/> }
                 { isLoading && <LoadingCard/> }
 
-                {  data.map((item, key)=><div> <CardItem 
-                        className="m-5 p-4 " 
-                        title={item.title}
-                        subTitle={item.subTitle}
-                        key={key} />
+                {  data.map((item, key)=><div 
+                        onClick={()=>router.push(`/blogs/${item._id}`)}
+                        key={key}> 
+                            <CardItem 
+                                className="m-5 p-4 " 
+                                title={item.title}
+                                subTitle={item.subTitle}
+                                />
                         </div>
                     )
                 }
                 
                
             </div>
+
         </>
     );
 }
