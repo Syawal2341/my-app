@@ -2,9 +2,9 @@
 
 "use client"
 import { useRouter, useParams } from 'next/navigation';
-import Card from '../../../../../components/card';
+import Card from '../../../../components/card';
 import { useEffect, useState, useRef } from 'react';
-import ConfigDialog from '../../../../../components/ConfirmDialog'
+import ConfigDialog from '../../../../components/ConfirmDialog'
 import { Editor } from '@tinymce/tinymce-react';
 
 export default function EditBlogs() {
