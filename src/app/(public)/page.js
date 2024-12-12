@@ -39,7 +39,7 @@ export default function Dashboard() {
             </div>
             <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
             <button className="btn-primary mt-5">
-              <span className="relative text-sm font-semibold text-white">
+              <span className="relative text-sm font-semibold text-white btn-link" href="/about">
                   Here Me
               </span>
             </button>
