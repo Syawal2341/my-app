@@ -91,9 +91,6 @@ export default function AdminBlogs() {
                                 <td className='p-2 '>{item.subTitle} </td>
                                 <td className='p-2 '>
                                     <div className="inline-flex text-[12px]">
-                                        <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
-                                            Detail
-                                        </button>
                                         <button 
                                             onClick={()=>gotoEditPage(item._id)}
                                             className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4">
