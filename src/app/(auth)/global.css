@@ -22,7 +22,7 @@
 }
 
 body {
-  @apply bg-cyan-200;
+  @apply bg-grey-200;
 }
 
 :root {
