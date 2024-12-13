@@ -31,19 +31,21 @@ export default function Dashboard() {
       <>
         <div className='flex w-full bg-white rounded-xl '>
           <div className="flex-1 p-10">
-            <div className="font-extrabold text-[48px] mt-1">
-              <div>I&lsquo;m Mussyawal Baihaki</div>
-              <div className="mb-5">
-                <span className="text-[#FFB400]">Fullstack</span> Developer 
+            <div className="font-extrabold text-[48px] mt-10">
+              <div>I&lsquo;m Rayan Adlrdard</div>
+              <div>
+                <span className="text-[#FFB400]">Front-end</span> Developer 
               </div>
             </div>
             <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
-            <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
-            <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
-            <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
-            <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
+            <button className="btn-primary mt-5">
+              <a href="/about">
+              <span className="relative text-sm font-semibold text-white">
+                  Here Me
+              </span>
+              </a>
+            </button>
           </div>
-          
           <div>
             <img src="images/avatar.png" />
           </div>

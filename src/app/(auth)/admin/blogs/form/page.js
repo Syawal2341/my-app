@@ -89,7 +89,7 @@ export default function AdminBlogsForm() {
                 <label>Content</label>
                 <Editor
                     id='content'
-                    apiKey='w1n5gj4ky3yssqujkc54urh9zxiaqu7y675ui0v64srauzqm'
+                    apiKey='hz9os6h0p1826jcqknks4q1fm8yl9khctaa7nmexkf0rnx2e'
                     onInit={(_evt, editor) => editorRef.current = editor}
                     initialValue={data.content}
                     init={{

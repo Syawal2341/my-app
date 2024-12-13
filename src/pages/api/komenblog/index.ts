@@ -14,31 +14,28 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
                     throw new Error('invalid request')
                 }
                 
-                if( body.title == ""){
-                    throw new Error('title is required')
+                if( body.nama == ""){
+                    throw new Error('nama is required')
                 }
 
-                if( body.subTitle == ""){
-                    throw new Error('subTitle is required')
-                }
-                if( body.categoryblogs == ""){
-                    throw new Error('categoryblogs is required')
+                if( body.email == ""){
+                    throw new Error('email is required')
                 }
 
-                if( body.content == ""){
-                    throw new Error('content is required')
+                if( body.komentar == ""){
+                    throw new Error('komentar is required')
                 }
 
-                let blogs = await db.collection("blogs").insertOne(body);
-                res.status(200).json({ data: blogs, message:'data berhasil di simpan' });
+                let komenblog = await db.collection("komenblog").insertOne(body);
+                res.status(200).json({ data: komenblog, message:'data berhasil di simpan' });
 
             }catch(err){
                 res.status(422).json({ message: err.message});
             }
             break;
         default:
-            const blogsData = await db.collection("blogs").find({}).toArray();
-            res.json({ data: blogsData });
+            const blogsDataKomen = await db.collection("komenblog").find({}).toArray();
+            res.json({ data: blogsDataKomen });
         break;
     }
 }
