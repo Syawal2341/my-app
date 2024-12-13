@@ -81,6 +81,8 @@ export default function EditBlogs() {
         fetDataById()
     },[])
 
+    if(isLoading) return (<>Loading...</>)
+
     return (
       <>
         <Card title="Blogs Edit Form">
