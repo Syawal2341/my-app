@@ -32,16 +32,32 @@ export default function Dashboard() {
         <div className='flex w-full bg-white rounded-xl '>
           <div className="flex-1 p-10">
             <div className="font-extrabold text-[48px] mt-10">
+<<<<<<< HEAD
               <div>I&lsquo;m Rayan Adlrdard</div>
               <div>
                 <span className="text-[#FFB400]">Front-end</span> Developer 
+=======
+              <div>I&lsquo;m Mussyawal Baihaki</div>
+              <div>
+                <span className="text-[#FFB400]">Fullstack Developer </span>
+                <>And </>
+                <span className="text-[#FFB400]">Cyber Security</span>
+>>>>>>> 6eac28cdab5ec8534e4917d557b5211bdad0c76d
               </div>
             </div>
             <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
             <button className="btn-primary mt-5">
+<<<<<<< HEAD
               <span className="relative text-sm font-semibold text-white">
                   Here Me
               </span>
+=======
+              <a href="/about">
+              <span className="relative text-sm font-semibold text-white">
+                  Here Me
+              </span>
+              </a>
+>>>>>>> 6eac28cdab5ec8534e4917d557b5211bdad0c76d
             </button>
           </div>
           <div>
