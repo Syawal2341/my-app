@@ -19,9 +19,9 @@ export default function PublicMenu() {
                 </div>
                 <div>
                   <ul className="flex flex-row gap-6">
-                    <li className="mt-1">
+                   <li className="mt-1">
                       <a className="btn-link" href="/about">About</a>
-                    </li>
+                    </li> 
                     <li className="mt-1">
                       <a className="btn-link" href="/work">Work</a>
                     </li>
