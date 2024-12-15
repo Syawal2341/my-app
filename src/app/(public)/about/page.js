@@ -9,12 +9,12 @@ export default function About() {
                 Mussyawal Baihaki lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum.
             </p>
             <div className="flex flex-wrap justify-center">
-                <a href="">
+                <a href="/">
                     <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200">
                         Learn More
                     </button>
                 </a>
-                <a href="">
+                <a href="/contact">
                     <button className="ml-4 bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200">
                         Contact Us
                     </button>
